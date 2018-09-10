@@ -12,7 +12,7 @@ RUN set -x \
  && rm -rf /tmp/* \
  && cpuminer --cputest \
  && cpuminer --version \
- && mkdir /cpuminer \
+ && mkdir /cpuminer /cpuminer/config \
  && mv /usr/local/bin/cpuminer /cpuminer/cpuminer
 
 WORKDIR /cpuminer
@@ -20,5 +20,7 @@ WORKDIR /cpuminer
 COPY script.sh /cpuminer/script.sh
 
 RUN chmod +x /cpuminer/script.sh 
+
+VOLUME /cpuminer/config
 
 ENTRYPOINT /cpuminer/script.sh
