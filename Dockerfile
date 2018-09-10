@@ -21,8 +21,8 @@ COPY script.sh /cpuminer/script.sh
 
 RUN chmod +x /cpuminer/script.sh 
 
-VOLUME /cpuminer
-
 COPY config.json.sample /cpuminer/config/config.json.sample
+
+VOLUME /cpuminer
 
 ENTRYPOINT /cpuminer/script.sh
