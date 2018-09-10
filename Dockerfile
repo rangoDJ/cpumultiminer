@@ -8,7 +8,6 @@ RUN set -x \
  && ./autogen.sh \
  && ./configure CFLAGS="-O2 -march=native" --with-crypto --with-curl \
  && make install \
- && cd / \
  && apk del --purge .build-deps \
  && rm -rf /tmp/* \
  && cpuminer --cputest \
@@ -16,7 +15,7 @@ RUN set -x \
  && mkdir /cpuminer \
  && mv /usr/local/bin/cpuminer /cpuminer/cpuminer
 
-# WORKDIR /cpuminer
+WORKDIR /cpuminer
 
 COPY script.sh /cpuminer/script.sh
 
