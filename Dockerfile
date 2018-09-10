@@ -23,4 +23,6 @@ RUN chmod +x /cpuminer/script.sh
 
 VOLUME /cpuminer/config
 
+COPY config.json.sample /cpuminer/config/config.json.sample
+
 ENTRYPOINT /cpuminer/script.sh
